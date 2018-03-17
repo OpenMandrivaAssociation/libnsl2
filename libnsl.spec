@@ -3,6 +3,7 @@
 %define devname %mklibname nsl -d
 %define static %mklibname -d -s nsl
 %define _disable_ld_no_undefined 1
+%define _disable_lto 1
 
 Summary:	Public client interface library for NIS(YP) and NIS+
 Name:		libnsl

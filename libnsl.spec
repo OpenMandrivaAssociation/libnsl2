@@ -11,9 +11,7 @@ License:	BSD and LGPLv2+
 Group:		System/Libraries
 Url:		https://github.com/thkukuk/libnsl
 Source0:	https://github.com/thkukuk/libnsl/archive/v%{version}.tar.gz
-BuildRequires:	pkgconfig
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	gettext-devel
 
 %description
 This package contains the libnsl library. This library contains
@@ -25,10 +23,10 @@ be able to link against TI-RPC for IPv6 support.
 Summary:	Public client interface library for NIS(YP) and NIS+
 Group:		System/Libraries
 
-%description -n	%{libname}
+%description -n %{libname}
 This package contains the shared library for %{name}.
 
-%package -n	%{devname}
+%package -n %{devname}
 Summary:	Development files for the libnsl library
 Group:		Development/C
 Requires:	%{libname} >= %{EVRD}
@@ -36,11 +34,11 @@ Conflicts:	glibc < 6:2.17-1.22064.3
 Conflicts:	glibc-devel < 6:2.27-1
 Conflicts:	tirpc-devel < 1.0.2-2
 
-%description -n	%{devname}
+%description -n %{devname}
 This package includes header files and libraries necessary for developing
 programs which use the nsl library.
 
-%package -n	%{static}
+%package -n %{static}
 Summary:	Static version of libnsl library
 Group:		Development/C
 Requires:	%{devname} >= %{EVRD}
@@ -51,20 +49,21 @@ This package contains a static library version of the nsl library.
 
 %prep
 %setup -qn %{name}-%{version}
-%apply_patches
+%autopatch -p1
 autoreconf -fiv
 
 %build
 CONFIGURE_TOP="$PWD"
 export CFLAGS="%{optflags} -fPIC"
 
-%configure	\
+%configure \
 	--enable-shared \
 	--enable-static
-%make
+
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files -n %{libname}
 %{_libdir}/libnsl.so.%{major}*

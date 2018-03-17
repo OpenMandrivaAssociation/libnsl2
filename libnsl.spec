@@ -12,6 +12,7 @@ Group:		System/Libraries
 Url:		https://github.com/thkukuk/libnsl
 Source0:	https://github.com/thkukuk/libnsl/archive/v%{version}.tar.gz
 BuildRequires:	gettext-devel
+BuildRequires:	pkgconfig(libtirpc)
 
 %description
 This package contains the libnsl library. This library contains

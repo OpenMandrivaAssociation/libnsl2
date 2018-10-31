@@ -6,7 +6,7 @@
 Summary:	Public client interface library for NIS(YP) and NIS+
 Name:		libnsl
 Version:	1.2.0
-Release:	1
+Release:	2
 License:	BSD and LGPLv2+
 Group:		System/Libraries
 Url:		https://github.com/thkukuk/libnsl

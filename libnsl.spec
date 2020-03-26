@@ -6,7 +6,7 @@
 Summary:	Public client interface library for NIS(YP) and NIS+
 Name:		libnsl
 Version:	1.2.0
-Release:	2
+Release:	3
 License:	BSD and LGPLv2+
 Group:		System/Libraries
 Url:		https://github.com/thkukuk/libnsl
@@ -49,8 +49,7 @@ Provides:	libnsl-static-devel = %{EVRD}
 This package contains a static library version of the nsl library.
 
 %prep
-%setup -qn %{name}-%{version}
-%autopatch -p1
+%autosetup -p1
 autoreconf -fiv
 
 %build

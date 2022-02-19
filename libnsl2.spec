@@ -2,7 +2,7 @@
 %define libname %mklibname nsl %{major}
 
 Summary:	Old version of the public client interface library for NIS(YP) and NIS+
-Name:		libnsl
+Name:		libnsl2
 Version:	1.3.0
 Release:	1
 License:	BSD and LGPLv2+
@@ -26,7 +26,7 @@ Group:		System/Libraries
 This package contains the shared library for %{name}.
 
 %prep
-%autosetup -p1
+%autosetup -p1 -n libnsl-%{version}
 autoreconf -fiv
 
 %build

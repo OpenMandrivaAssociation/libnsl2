@@ -9,6 +9,11 @@ License:	BSD and LGPLv2+
 Group:		System/Libraries
 Url:		https://github.com/thkukuk/libnsl
 Source0:	https://github.com/thkukuk/libnsl/archive/v%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(libtirpc)
 
